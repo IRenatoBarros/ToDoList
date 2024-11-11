@@ -24,12 +24,16 @@
 }
 
 #lista{
-    width: 400px;
+    width: fit-content;
     height: fit-content;
     background-color: white;
     border: solid 1px black;
+    padding: 10px;
 }
 
 #listaul{
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

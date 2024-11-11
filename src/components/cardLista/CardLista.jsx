@@ -10,11 +10,29 @@ function CardLista(){
     const [tarefas,setTarefas] = useState([])
 
     const addTarefa = () => {
-        setTarefas([...tarefas,<CardTarefa text={inputRef.current.value} aoClicar={removerTarefa}></CardTarefa>])
+        const newTarefas= [
+            ...tarefas,
+            {
+                id: Math.floor(Math.random() * 1000),
+                texto: inputRef.current.value,
+                isCompleted: false,
+            }
+        ]
+        setTarefas(newTarefas)
     }   
 
-    const removerTarefa = (index) => {
-        setTarefas(prevTarefas => prevTarefas.filter((_,i) => i !== index))
+    const removerTarefa = (id) => {
+        const novasTarefas = [...tarefas]
+        const filtrarTarefas = novasTarefas.filter((tarefa) => 
+        tarefa.id !== id ? tarefa : null)
+
+        setTarefas(filtrarTarefas)
+    }
+
+    const completarTarefa = (id) => {
+        const novasTarefas = [...tarefas]
+        novasTarefas.map((tarefa) => tarefa.id === id ? tarefa.isCompleted = !tarefa.isCompleted : tarefa)
+        setTarefas(novasTarefas)
     }
 
     return(
@@ -31,8 +49,8 @@ function CardLista(){
             </div>
             <div id={style.lista}>
                 <ul id={style.listaul}>
-                    {tarefas.map((item, index) => (
-                        <li key={index}>{item}</li>
+                    {tarefas.map((todo) => (
+                        <li><CardTarefa key={todo.id} todo={todo} onClickExcluir={removerTarefa} onClickCompletar={completarTarefa}></CardTarefa></li>
                     ))}
                 </ul>
             </div>
