@@ -1,0 +1,35 @@
+#principal{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    border: solid 1px black;
+    width: fit-content;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px;
+    background-color: rgb(235, 235, 235);
+}
+
+#inputgroup{
+    display: flex;
+    gap: 20px;
+}
+
+#filtros{
+    display: flex;
+    gap: 10px;
+}
+
+#lista{
+    width: 400px;
+    height: fit-content;
+    background-color: white;
+    border: solid 1px black;
+}
+
+#listaul{
+    list-style-type: none;
+}

@@ -1,0 +1,7 @@
+#principal{
+    display: flex;
+    gap: 30px;
+    width: fit-content;
+    padding: 5px;
+    background-color: rgb(235, 235, 235);
+}
